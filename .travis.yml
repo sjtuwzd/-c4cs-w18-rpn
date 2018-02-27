@@ -6,7 +6,7 @@ install:
 
 
 script:
-  - make
+  - make --doctest-modules --pep8 coveralls -v --cov coveralls --cov-report term-missing
 
 after_success:
   - coveralls
