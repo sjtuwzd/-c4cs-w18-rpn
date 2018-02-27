@@ -1,12 +1,13 @@
 language: python
 python:
   - "3.5"
-install:
-  - pip install python-coveralls
-
+  
+before_install:
+    - pip install pytest pytest-cov
+    - pip install coveralls
 
 script:
-  - make --doctest-modules --pep8 coveralls -v --cov coveralls --cov-report term-missing
+  - make
 
 after_success:
   - coveralls
