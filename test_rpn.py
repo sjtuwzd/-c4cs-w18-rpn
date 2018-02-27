@@ -16,5 +16,5 @@ class TestBasics(unittest.TestCase):
         result = rpn.calculate("6 3 /")
         self.assertEqual(2, result)
     def test_exponential(self):
-	result = rpn.calculate("5 3 ^")
-	self.assertEqual(125,result)
+        result = rpn.calculate("5 3 ^")
+        self.assertEqual(125, result)
