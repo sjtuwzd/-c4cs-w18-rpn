@@ -7,7 +7,7 @@ before_install:
     - pip install coveralls
 
 script:
-  - py.test -vv  rpn.py
+  - make
 
 after_success:
   - coveralls
