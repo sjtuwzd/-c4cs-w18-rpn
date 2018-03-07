@@ -1,7 +1,21 @@
 #!/usr/bin/env python3
 
 import operator
+import getopt, sys
 
+fullCmdArguments = sys.argv
+
+argumentList = fullCmdArguments[1:]
+
+unixOptions = "d"
+gnuOptions = ["debug"]
+
+arguments, values = getopt.getopt(argumentList, unixOptions, gnuOptions)
+
+debug_flag = 0
+for currentArgument, currentValue in arguments:
+    if currentArgument in ("-d", "--debug"):
+        debug_flag = 1
 
 operators = {
     '+': operator.add,
@@ -23,7 +37,8 @@ def calculate(myarg):
             arg1 = stack.pop()
             result = function(arg1, arg2)
             stack.append(result)
-        print(stack)
+        if(debug_flag == 1):
+            print(stack)
     if len(stack) != 1:
         raise TypeError("Too many parameters")
     return stack.pop()
